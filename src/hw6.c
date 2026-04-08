@@ -92,16 +92,27 @@ int main(int argc, char *argv[]) {
         return OUTPUT_FILE_UNWRITABLE;
     }
     
-
+    //R error check
     if(s_Exists!=true){
         return S_ARGUMENT_MISSING;
     }
     else if(r_Exists!=true){
         return R_ARGUMENT_MISSING;
     }
+    //wiLDCARD ERROR CHECK
 
-
-
+    if(wildcard==true){
+        char *w_Check=strchr(s_Search,'*');
+        if(w_Check==NULL){
+            return WILDCARD_INVALID;
+        }
+        else if(strchr(w_Check+1,'*')!=NULL){
+            return WILDCARD_INVALID;
+        }
+        else if(s_Search[0]!='*'&&s_Search[strlen(s_Search)-1]!='*'){
+            return WILDCARD_INVALID;
+        }
+    }
 
     return 0;
 }
