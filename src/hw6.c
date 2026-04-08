@@ -17,7 +17,8 @@ int main(int argc, char *argv[]) {
     bool r_Exists=false;
     bool l_Exists=false;
     bool w_Exists=false;
-
+    //to allow for proper order of error checks:
+    bool L_Error=false;
     //Loops through arguments and checks if it should return DUPLICATED_ARGUMENTS, based on the geeksforgeeks loop for guidance
     int opt;
     while((opt=getopt(argc,argv,"s:r:wl:"))!=-1){
@@ -63,16 +64,19 @@ int main(int argc, char *argv[]) {
                     char *sec=strtok(NULL,",");
                     //strtol takes string, end char, and type of number (binary, octal, decimal, hexa)
                     if(first==NULL||strtol(first,NULL,10)==0){
-                        return L_ARGUMENT_INVALID;
+                        L_Error=true;
+                        break;
                     }
                     else if(sec==NULL ||strtol(sec,NULL,10)==0){
-                        return L_ARGUMENT_INVALID;
+                        L_Error=true;
+                        break;
                     }
                     
                     startIndex=strtol(first,NULL,10);
                     endIndex=strtol(sec,NULL,10);
                     if(startIndex>endIndex){
-                        return L_ARGUMENT_INVALID;
+                        L_Error=true;
+                        break;
                     }
                     break;                    
                 }
@@ -98,6 +102,10 @@ int main(int argc, char *argv[]) {
     }
     else if(r_Exists!=true){
         return R_ARGUMENT_MISSING;
+    }
+    //L error decider
+    if(L_Error==true){
+        return L_ARGUMENT_INVALID;
     }
     //wiLDCARD ERROR CHECK
 
