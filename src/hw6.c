@@ -20,35 +20,41 @@ int main(int argc, char *argv[]) {
 
     //Loops through arguments and checks if it should return DUPLICATED_ARGUMENTS, based on the geeksforgeeks loop for guidance
     int opt;
-    while((opt=getopt(argc,argv,"s:r:w:l"))!=-1){
+    while((opt=getopt(argc,argv,"s:r:wl:"))!=-1){
         switch(opt){
+    //if found now, but not found yet make it true and save what comes after the variable, otherwise if found more than once return DUPLICATED_ARGUMENTS
+
             case 's':
-                if (s_Exists=true){
+                if (s_Exists==true){
                     return DUPLICATED_ARGUMENTS;
                 
                 }
                 else{
                     s_Exists=true;
+                    strcpy(s_Search,optarg);
                     break;
                 }
             case 'r':
-                if(r_Exists=false){
+                if(r_Exists==false){
                     r_Exists=true;
+                    strcpy(r_Replace,optarg);
+
                     break;
                 }
                 else{
                     return DUPLICATED_ARGUMENTS;
                 }
             case 'w':
-                if(w_Exists=false){
+                if(w_Exists==false){
                     w_Exists=true;
+                    wildcard=true;
                     break;
                 }
                 else{
                     return DUPLICATED_ARGUMENTS;
                 }
             case 'l':
-                if(l_Exists=false){
+                if(l_Exists==false){
                     l_Exists=true;
                     break;
                 }
