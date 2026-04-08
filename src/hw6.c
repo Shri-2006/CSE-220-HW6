@@ -56,7 +56,34 @@ int main(int argc, char *argv[]) {
             case 'l':
                 if(l_Exists==false){
                     l_Exists=true;
+
+                    char l_Copy[100];
+                    strcpy(l_Copy,optarg);
+                    char *first=strtok(l_arg,",");
+                    char *sec=strtok(NULL,",");
+                    //strtol takes string, end char, and type of number (binary, octal, decimal, hexa)
+                    if(first==NULL||strtol(first,NULL,10)==0){
+                        return L_ARGUMENT_INVALID;
+                    }
+                    if(SECOND==NULL ||strtol(sec,NULL,10)==0){
+                        return L_ARGUMENT_INVALID;
+                    }
+                    else if(startIndex>endIndex){
+                        return L_ARGUMENT_INVALID;
+                    }
+                    startIndex=strtol(*first,NULL,10);
+                    endIndex=strtol(second,NULL,10);
                     break;
+
+
+
+
+
+
+
+
+
+                    
                 }
                 else{
                     return DUPLICATED_ARGUMENTS;
