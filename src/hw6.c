@@ -6,5 +6,12 @@ int main(int argc, char *argv[]) {
     if(argc<7){
         return MISSING_ARGUMENT;
     }
+    
+
+
+
+
+
+
     return 0;
 }
