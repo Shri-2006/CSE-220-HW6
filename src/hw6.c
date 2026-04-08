@@ -59,31 +59,22 @@ int main(int argc, char *argv[]) {
 
                     char l_Copy[100];
                     strcpy(l_Copy,optarg);
-                    char *first=strtok(l_arg,",");
+                    char *first=strtok(l_Copy,",");
                     char *sec=strtok(NULL,",");
                     //strtol takes string, end char, and type of number (binary, octal, decimal, hexa)
                     if(first==NULL||strtol(first,NULL,10)==0){
                         return L_ARGUMENT_INVALID;
                     }
-                    if(SECOND==NULL ||strtol(sec,NULL,10)==0){
+                    else if(sec==NULL ||strtol(sec,NULL,10)==0){
                         return L_ARGUMENT_INVALID;
                     }
-                    else if(startIndex>endIndex){
-                        return L_ARGUMENT_INVALID;
-                    }
-                    startIndex=strtol(*first,NULL,10);
-                    endIndex=strtol(second,NULL,10);
-                    break;
-
-
-
-
-
-
-
-
-
                     
+                    startIndex=strtol(first,NULL,10);
+                    endIndex=strtol(sec,NULL,10);
+                    if(startIndex>endIndex){
+                        return L_ARGUMENT_INVALID;
+                    }
+                    break;                    
                 }
                 else{
                     return DUPLICATED_ARGUMENTS;
@@ -91,7 +82,23 @@ int main(int argc, char *argv[]) {
 
         }
     }
+    FILE *input=fopen(argv[argc-2],"r");
+    if(input==NULL) {
+        return INPUT_FILE_MISSING;
+    }
+    
+    FILE *output=fopen(argv[argc-1],"w");
+    if(output==NULL){
+        return OUTPUT_FILE_UNWRITABLE;
+    }
+    
 
+    if(s_Exists!=true){
+        return S_ARGUMENT_MISSING;
+    }
+    else if(r_Exists!=true){
+        return R_ARGUMENT_MISSING;
+    }
 
 
 
