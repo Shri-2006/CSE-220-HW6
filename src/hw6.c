@@ -18,8 +18,46 @@ int main(int argc, char *argv[]) {
     bool l_Exists=false;
     bool w_Exists=false;
 
-    //Loops through arguments and checks if it should return DUPLICATED_ARGUMENTS
-    
+    //Loops through arguments and checks if it should return DUPLICATED_ARGUMENTS, based on the geeksforgeeks loop for guidance
+    int opt;
+    while((opt=getopt(argc,argv,"s:r:w:l"))!=-1){
+        switch(opt){
+            case 's':
+                if (s_Exists=true){
+                    return DUPLICATED_ARGUMENTS;
+                
+                }
+                else{
+                    s_Exists=true;
+                    break;
+                }
+            case 'r':
+                if(r_Exists=false){
+                    r_Exists=true;
+                    break;
+                }
+                else{
+                    return DUPLICATED_ARGUMENTS;
+                }
+            case 'w':
+                if(w_Exists=false){
+                    w_Exists=true;
+                    break;
+                }
+                else{
+                    return DUPLICATED_ARGUMENTS;
+                }
+            case 'l':
+                if(l_Exists=false){
+                    l_Exists=true;
+                    break;
+                }
+                else{
+                    return DUPLICATED_ARGUMENTS;
+                }
+
+        }
+    }
 
 
 
