@@ -1,6 +1,6 @@
 #include "hw6.h"
 //Shriyans Singh 114807762
-
+    //part 1 is error code check
 int main(int argc, char *argv[]) {
     //if not enough arguments provided return missing argument from header file
     if(argc<7){
@@ -120,6 +120,30 @@ int main(int argc, char *argv[]) {
         else if(s_Search[0]!='*'&&s_Search[strlen(s_Search)-1]!='*'){
             return WILDCARD_INVALID;
         }
+    }
+
+        //PART 2, search and replace
+    int linePos=1;
+    char currentLine[MAX_LINE];
+    while(fgets(currentLine,MAX_LINE,input)!=NULL){
+        //if within the lines to edit it matches rewrite, else just go on
+        if(linePos>=startIndex&&linePos<=endIndex){
+            char *match=strstr(currentLine,s_Search);
+            char *currentPos=currentLine;
+            while(match!= NULL){
+                fwrite(currentPos,1,(match-currentPos),output);
+                fputs( r_Replace,output);
+                //update currentpos to after what has been checked
+                currentPos=match+ strlen(s_Search);
+                match =strstr(currentPos,s_Search);
+            }
+            //write the output after the final match
+            fputs(currentPos,output);
+        }
+        else{
+            fputs(currentLine,output);
+        }
+        linePos++;
     }
 
     return 0;
