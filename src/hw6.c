@@ -123,13 +123,12 @@ int main(int argc, char *argv[]) {
     }
 
     //part3
-    char matcher[MAX_SEARCH_LEN];
+    char matcher[MAX_SEARCH_LEN+1];
     bool beginMatch=false;
-    bool endMatch=false;
 
     if(s_Search[strlen(s_Search)-1]=='*'){
         strcpy(matcher,s_Search);
-        pattern[strlen(matcher)-1]='\0';
+        matcher[strlen(matcher)-1]='\0';
         beginMatch=true;
     }
     else{
