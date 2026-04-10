@@ -103,23 +103,31 @@ int main(int argc, char *argv[]) {
     }
     FILE *input=fopen(argv[argc-2],"r");
     if(input==NULL) {
+        //no need for fclose since it failed to open
         return INPUT_FILE_MISSING;
     }
     
     FILE *output=fopen(argv[argc-1],"w");
     if(output==NULL){
+        fclose(input);
         return OUTPUT_FILE_UNWRITABLE;
     }
     
     //R error check
     if(s_Exists!=true){
+        fclose(input);
+        fclose(output);
         return S_ARGUMENT_MISSING;
     }
     else if(r_Exists!=true){
+        fclose(input);
+        fclose(output);
         return R_ARGUMENT_MISSING;
     }
     //L error decider
     if(L_Error==true){
+        fclose(input);
+        fclose(output);
         return L_ARGUMENT_INVALID;
     }
     //wiLDCARD ERROR CHECK
@@ -127,12 +135,18 @@ int main(int argc, char *argv[]) {
     if(wildcard==true){
         char *w_Check=strchr(s_Search,'*');
         if(w_Check==NULL){
+            fclose(input);
+            fclose(output);
             return WILDCARD_INVALID;
         }
         else if(strchr(w_Check+1,'*')!=NULL){
+            fclose(input);
+            fclose(output);
             return WILDCARD_INVALID;
         }
         else if(s_Search[0]!='*'&&s_Search[strlen(s_Search)-1]!='*'){
+            fclose(input);
+            fclose(output);
             return WILDCARD_INVALID;
         }
     }
@@ -215,6 +229,8 @@ int main(int argc, char *argv[]) {
     }
 
 
-
+    fclose(input);
+    fclose(output);
+                                                                                                                                                                                                                                                                                                                                                                                                                                //honestly not 100% sure why this is still needed
     return 0;
 }

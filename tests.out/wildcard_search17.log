@@ -1,1 +1,13 @@
-sh: 1: valgrind: not found
+==92733== Memcheck, a memory error detector
+==92733== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==92733== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==92733== Command: ./bin/hw6 -l 1,22 -s *gence -r wisdom -w tests.in/wildcard_search17.in.txt tests.out/wildcard_search17.out.txt
+==92733== 
+==92733== 
+==92733== HEAP SUMMARY:
+==92733==     in use at exit: 0 bytes in 0 blocks
+==92733==   total heap usage: 4 allocs, 4 frees, 9,136 bytes allocated
+==92733== 
+==92733== All heap blocks were freed -- no leaks are possible
+==92733== 
+==92733== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
