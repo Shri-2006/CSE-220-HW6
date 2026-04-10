@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
 
             case 's':
                 if (s_Exists==true){
-                    return DUPLICATED_ARGUMENTS;
+                    return DUPLICATE_ARGUMENTS;
                 
                 }
                 else{
@@ -43,7 +43,7 @@ int main(int argc, char *argv[]) {
                     break;
                 }
                 else{
-                    return DUPLICATED_ARGUMENTS;
+                    return DUPLICATE_ARGUMENTS;
                 }
             case 'w':
                 if(w_Exists==false){
@@ -52,7 +52,7 @@ int main(int argc, char *argv[]) {
                     break;
                 }
                 else{
-                    return DUPLICATED_ARGUMENTS;
+                    return DUPLICATE_ARGUMENTS;
                 }
             case 'l':
                 if(l_Exists==false){
@@ -81,7 +81,7 @@ int main(int argc, char *argv[]) {
                     break;                    
                 }
                 else{
-                    return DUPLICATED_ARGUMENTS;
+                    return DUPLICATE_ARGUMENTS;
                 }
 
         }
