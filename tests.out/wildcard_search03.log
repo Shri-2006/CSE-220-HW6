@@ -1,0 +1,13 @@
+==102401== Memcheck, a memory error detector
+==102401== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==102401== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==102401== Command: ./bin/hw6 -s mac* -r device -w -l 23,23 tests.in/wildcard_search03.in.txt tests.out/wildcard_search03.out.txt
+==102401== 
+==102401== 
+==102401== HEAP SUMMARY:
+==102401==     in use at exit: 0 bytes in 0 blocks
+==102401==   total heap usage: 4 allocs, 4 frees, 9,136 bytes allocated
+==102401== 
+==102401== All heap blocks were freed -- no leaks are possible
+==102401== 
+==102401== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

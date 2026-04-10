@@ -1,0 +1,13 @@
+==102418== Memcheck, a memory error detector
+==102418== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==102418== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==102418== Command: ./bin/hw6 -l 1,22 -s intel* -w -r wisdom tests.in/wildcard_search05.in.txt tests.out/wildcard_search05.out.txt
+==102418== 
+==102418== 
+==102418== HEAP SUMMARY:
+==102418==     in use at exit: 0 bytes in 0 blocks
+==102418==   total heap usage: 4 allocs, 4 frees, 9,136 bytes allocated
+==102418== 
+==102418== All heap blocks were freed -- no leaks are possible
+==102418== 
+==102418== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
