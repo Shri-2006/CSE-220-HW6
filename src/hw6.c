@@ -142,21 +142,60 @@ int main(int argc, char *argv[]) {
     while(fgets(currentLine,MAX_LINE,input)!=NULL){
         //if within the lines to edit it matches rewrite, else just go on
         if(linePos>=startIndex&&linePos<=endIndex){
-            char *match=strstr(currentLine,s_Search);
-            char *currentPos=currentLine;
-            while(match!= NULL){
-                fwrite(currentPos,1,(match-currentPos),output);
-                fputs( r_Replace,output);
-                //update currentpos to after what has been checked
-                currentPos=match+ strlen(s_Search);
-                match =strstr(currentPos,s_Search);
+            if(wildcard==true){
+                char *currentPos=currentLine;
+                while(*currentPos!='\0'){
+                    //find start and end of word
+                    if(!isspace(*currentPos)&&!ispunct(*currentPos)){
+                        char *startWord=currentPos;
+                        while(*currentPos!='\0'&&(!isspace(*currentPos)&&(!ispunct(*currentPos)))){
+                            currentPos++;
+                        }
+                        char *endofWord=currentPos;
+                        int length=endofWord-startWord;
+                        int matcher_len=strlen(matcher);
+                        bool matched=false;
+                        //check from start
+                        if(beginMatch&&length>=matcher_len){
+                            matched=(strncmp(startWord,matcher,matcher_len)==0);
+                        }
+                        //check from end
+                        else if(!beginMatch&& length>=matcher_len){
+                            matched=(strncmp((endofWord-matcher_len),matcher,matcher_len)==0);
+                        }
+                        //replace words
+                        if(matched==true){
+                            fputs(r_Replace,output);
+                        }
+                        else{
+                            fwrite(startWord,1,length,output);
+                        }
+                    }
+                    else{
+                        //if space/punct simply put it back in string
+                        fputc(*currentPos,output);
+                        currentPos++;
+                    }
+                }
             }
-            //write the output after the final match
-            fputs(currentPos,output);
+            else{
+                char *match=strstr(currentLine,s_Search);
+                char *currentPos=currentLine;
+                while(match!= NULL){
+                    fwrite(currentPos,1,(match-currentPos),output);
+                    fputs( r_Replace,output);
+                    //update currentpos to after what has been checked
+                    currentPos=match+ strlen(s_Search);
+                    match =strstr(currentPos,s_Search);
+                }
+                //write the output after the final match
+                fputs(currentPos,output);
+            }
+            
         }
         else{
-            fputs(currentLine,output);
-        }
+                fputs(currentLine,output);
+            }
         linePos++;
     }
 
