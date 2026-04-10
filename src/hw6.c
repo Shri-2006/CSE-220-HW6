@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
 
             case 's':
                 if (s_Exists==true){
-                    return DUPLICATE_ARGUMENTS;
+                    return DUPLICATE_ARGUMENT;
                 
                 }
                 else{
@@ -35,6 +35,7 @@ int main(int argc, char *argv[]) {
                     strcpy(s_Search,optarg);
                     break;
                 }
+                break;
             case 'r':
                 if(r_Exists==false){
                     r_Exists=true;
@@ -43,8 +44,9 @@ int main(int argc, char *argv[]) {
                     break;
                 }
                 else{
-                    return DUPLICATE_ARGUMENTS;
+                    return DUPLICATE_ARGUMENT;
                 }
+                break;
             case 'w':
                 if(w_Exists==false){
                     w_Exists=true;
@@ -52,8 +54,9 @@ int main(int argc, char *argv[]) {
                     break;
                 }
                 else{
-                    return DUPLICATE_ARGUMENTS;
+                    return DUPLICATE_ARGUMENT;
                 }
+                break;
             case 'l':
                 if(l_Exists==false){
                     l_Exists=true;
@@ -81,7 +84,7 @@ int main(int argc, char *argv[]) {
                     break;                    
                 }
                 else{
-                    return DUPLICATE_ARGUMENTS;
+                    return DUPLICATE_ARGUMENT;
                 }
 
         }
