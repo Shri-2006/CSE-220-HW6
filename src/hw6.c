@@ -30,6 +30,10 @@ int main(int argc, char *argv[]) {
                     return DUPLICATE_ARGUMENT;
                 
                 }
+                //must check for -l in optarg according to test
+                else if(optarg[0]=='-'){
+                    return S_ARGUMENT_MISSING;
+                }
                 else{
                     s_Exists=true;
                     strcpy(s_Search,optarg);
@@ -38,11 +42,16 @@ int main(int argc, char *argv[]) {
                 break;
             case 'r':
                 if(r_Exists==false){
+                    
                     r_Exists=true;
                     strcpy(r_Replace,optarg);
 
                     break;
                 }
+                else if(optarg[0]=='-'){
+                    return R_ARGUMENT_MISSING;
+                }
+
                 else{
                     return DUPLICATE_ARGUMENT;
                 }

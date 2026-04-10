@@ -1,7 +1,7 @@
 {
   "id": "Criterion v2.4.1",
-  "passed": 83,
-  "failed": 2,
+  "passed": 84,
+  "failed": 1,
   "errored": 0,
   "skipped": 0,
   "test_suites": [
@@ -365,8 +365,8 @@
     },
     {
       "name": "base_invalid_args",
-      "passed": 15,
-      "failed": 2,
+      "passed": 16,
+      "failed": 1,
       "errored": 0,
       "skipped": 0,
       "tests": [
@@ -383,10 +383,7 @@
         {
           "name": "s_argument_missing03",
           "assertions": 1,
-          "status": "FAILED",
-          "messages": [
-            "tests/unit_tests.c:51: The program exited with status 0 instead of 4."
-          ]
+          "status": "PASSED"
         },
         {
           "name": "s_argument_missing02",
