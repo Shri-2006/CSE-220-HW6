@@ -1,6 +1,6 @@
 #include "hw6.h"
 //Shriyans Singh 114807762
-    //part 1 is error code check
+//part 1 is error code check
 int main(int argc, char *argv[]) {
     //if not enough arguments provided return missing argument from header file
     if(argc<7){
@@ -12,6 +12,7 @@ int main(int argc, char *argv[]) {
     bool wildcard=false;
     //EOF = -1, which would be an extremely large number, and startIndex starts at 1 according to bullet 4 of overview
     int startIndex=1;
+    //large enough that no word is realistically this large so it counts as end index
     int endIndex=9999;
     bool s_Exists=false;
     bool r_Exists=false;
@@ -25,7 +26,7 @@ int main(int argc, char *argv[]) {
     opterr=0;
     while((opt=getopt(argc,argv,"s:r:wl:"))!=-1){
         switch(opt){
-    //if found now, but not found yet make it true and save what comes after the variable, otherwise if found more than once return DUPLICATED_ARGUMENTS
+            //if found now, but not found yet make it true and save what comes after the variable, otherwise if found more than once return DUPLICATED_ARGUMENTS
 
             case 's':
                 if (s_Exists==true){
@@ -45,8 +46,8 @@ int main(int argc, char *argv[]) {
             case 'r':
                 if(r_Exists==false){
                     if(optarg[0]=='-'){
-                    return R_ARGUMENT_MISSING;
-                }
+                        return R_ARGUMENT_MISSING;
+                    }
                     
                     r_Exists=true;
                     strcpy(r_Replace,optarg);
@@ -113,7 +114,7 @@ int main(int argc, char *argv[]) {
         return OUTPUT_FILE_UNWRITABLE;
     }
     
-    //R error check
+    //S or R error check
     if(s_Exists!=true){
         fclose(input);
         fclose(output);
@@ -130,7 +131,7 @@ int main(int argc, char *argv[]) {
         fclose(output);
         return L_ARGUMENT_INVALID;
     }
-    //wiLDCARD ERROR CHECK
+    //WILDCARD ERROR CHECK
 
     if(wildcard==true){
         char *w_Check=strchr(s_Search,'*');
@@ -165,7 +166,7 @@ int main(int argc, char *argv[]) {
     }
 
 
-        //PART 2, search and replace
+    //PART 2, search and replace
     int linePos=1;
     char currentLine[MAX_LINE];
     while(fgets(currentLine,MAX_LINE,input)!=NULL){
@@ -223,14 +224,13 @@ int main(int argc, char *argv[]) {
             
         }
         else{
-                fputs(currentLine,output);
-            }
+            fputs(currentLine,output);
+        }
         linePos++;
     }
 
 
     fclose(input);
     fclose(output);
-                                                                                                                                                                                                                                                                                                                                                                                                                                //honestly not 100% sure why this is still needed
     return 0;
 }
