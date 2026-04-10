@@ -1,1 +1,2 @@
 ## Shriyans Singh 114807762
+Personal note: This took forever. I wrote it out so many times on the paper, then the linux environment kept having different answers than the codespace environment.... im very tired. 

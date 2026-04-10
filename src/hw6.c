@@ -21,6 +21,8 @@ int main(int argc, char *argv[]) {
     bool L_Error=false;
     //Loops through arguments and checks if it should return DUPLICATED_ARGUMENTS, based on the geeksforgeeks loop for guidance
     int opt;
+    //piazza instruction to avoid make error
+    opterr=0;
     while((opt=getopt(argc,argv,"s:r:wl:"))!=-1){
         switch(opt){
     //if found now, but not found yet make it true and save what comes after the variable, otherwise if found more than once return DUPLICATED_ARGUMENTS
@@ -42,15 +44,16 @@ int main(int argc, char *argv[]) {
                 break;
             case 'r':
                 if(r_Exists==false){
+                    if(optarg[0]=='-'){
+                    return R_ARGUMENT_MISSING;
+                }
                     
                     r_Exists=true;
                     strcpy(r_Replace,optarg);
 
                     break;
                 }
-                else if(optarg[0]=='-'){
-                    return R_ARGUMENT_MISSING;
-                }
+                
 
                 else{
                     return DUPLICATE_ARGUMENT;
