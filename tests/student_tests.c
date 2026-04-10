@@ -60,7 +60,7 @@ Test(base_invalid_args, S_ARGUMENT_MISSING_SHRI, .description="the s option isn'
 Test(base_invalid_args, R_ARGUMENT_MISSING_SHRI, .description="R argument is not there") {
     char *test_name = "R_ARGUMENT_MISSING_SHRI";
     prep_files("unix.txt", test_name);    
-    sprintf(args, "-s hi -r -g shri -l 13,4 %s/%s.in.txt %s/%s.out.txt", TEST_INPUT_DIR, test_name, TEST_OUTPUT_DIR, test_name);
+    sprintf(args, "-s hi -r -g shri -l 4,13 %s/%s.in.txt %s/%s.out.txt", TEST_INPUT_DIR, test_name, TEST_OUTPUT_DIR, test_name);
     int status = run_using_system_no_valgrind(test_name, args);
     expect_error_exit(status, R_ARGUMENT_MISSING);
 }
@@ -83,7 +83,7 @@ Test(base_invalid_args, WILDCARD_INVALID_SHRI, .description="wildcard is invalid
 }
 
 //Finally a test that should just simply pass
-TEST(base_invalid_args,SUCCESS_TRY_Shri, .description="This is entirely valid test, should work fine"){
+Test(base_invalid_args,SUCCESS_TRY_Shri, .description="This is entirely valid test, should work fine*"){
     char *test_name="SUCCESS_TRY_Shri";
     prep_files("unix.txt", test_name);  
     sprintf(args, "-s hello -r world -l 1,5 %s/%s.in.txt %s/%s.out.txt", TEST_INPUT_DIR, test_name, TEST_OUTPUT_DIR, test_name);

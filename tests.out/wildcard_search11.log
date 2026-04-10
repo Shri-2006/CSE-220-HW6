@@ -1,13 +1,13 @@
-==102515== Memcheck, a memory error detector
-==102515== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==102515== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
-==102515== Command: ./bin/hw6 -s pal* -w -r all -l 30,44 tests.in/wildcard_search11.in.txt tests.out/wildcard_search11.out.txt
-==102515== 
-==102515== 
-==102515== HEAP SUMMARY:
-==102515==     in use at exit: 0 bytes in 0 blocks
-==102515==   total heap usage: 4 allocs, 4 frees, 9,136 bytes allocated
-==102515== 
-==102515== All heap blocks were freed -- no leaks are possible
-==102515== 
-==102515== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==105234== Memcheck, a memory error detector
+==105234== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==105234== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==105234== Command: ./bin/hw6 -s pal* -w -r all -l 30,44 tests.in/wildcard_search11.in.txt tests.out/wildcard_search11.out.txt
+==105234== 
+==105234== 
+==105234== HEAP SUMMARY:
+==105234==     in use at exit: 0 bytes in 0 blocks
+==105234==   total heap usage: 4 allocs, 4 frees, 9,136 bytes allocated
+==105234== 
+==105234== All heap blocks were freed -- no leaks are possible
+==105234== 
+==105234== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

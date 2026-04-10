@@ -1,6 +1,6 @@
 {
   "id": "Criterion v2.4.1",
-  "passed": 93,
+  "passed": 94,
   "failed": 0,
   "errored": 0,
   "skipped": 0,
@@ -365,7 +365,7 @@
     },
     {
       "name": "base_invalid_args",
-      "passed": 25,
+      "passed": 26,
       "failed": 0,
       "errored": 0,
       "skipped": 0,
@@ -482,6 +482,11 @@
         },
         {
           "name": "S_ARGUMENT_MISSING_SHRI",
+          "assertions": 1,
+          "status": "PASSED"
+        },
+        {
+          "name": "SUCCESS_TRY_Shri",
           "assertions": 1,
           "status": "PASSED"
         },

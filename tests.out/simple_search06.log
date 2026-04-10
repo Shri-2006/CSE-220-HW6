@@ -1,13 +1,13 @@
-==102301== Memcheck, a memory error detector
-==102301== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==102301== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
-==102301== Command: ./bin/hw6 -s Turing -r TURING\ THE\ GREAT tests.in/simple_search06.in.txt tests.out/simple_search06.out.txt
-==102301== 
-==102301== 
-==102301== HEAP SUMMARY:
-==102301==     in use at exit: 0 bytes in 0 blocks
-==102301==   total heap usage: 4 allocs, 4 frees, 9,136 bytes allocated
-==102301== 
-==102301== All heap blocks were freed -- no leaks are possible
-==102301== 
-==102301== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==105038== Memcheck, a memory error detector
+==105038== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==105038== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==105038== Command: ./bin/hw6 -s Turing -r TURING\ THE\ GREAT tests.in/simple_search06.in.txt tests.out/simple_search06.out.txt
+==105038== 
+==105038== 
+==105038== HEAP SUMMARY:
+==105038==     in use at exit: 0 bytes in 0 blocks
+==105038==   total heap usage: 4 allocs, 4 frees, 9,136 bytes allocated
+==105038== 
+==105038== All heap blocks were freed -- no leaks are possible
+==105038== 
+==105038== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
